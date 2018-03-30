@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>登录</title>
+    <link href="../css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="../css/materializecss-font.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/materialize.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+      #login {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#sumbit").click(function(){
+          var empty = false;
+          $("input").each(function(){
+            if($(this).val().length == 0)
+              empty=true;
+          });
+          if (empty) {
+            Materialize.toast('参数不合法', 2000);
+            return false;
+          }
+          else{
+            $("#form").submit();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body style="background-image: url(../images/background.png); background-size:cover;">
+    <div class="nav-content" style="margin: 20px; display: block;">
+      <div id="login">
+        <form name="form" method="get">
+          <div class="card" style="padding: 20px; width:300px;">
+            <h2 style="text-align: center;">登录</h2>
+            <div class="input-field">
+              <input id="account" type="text" name="account">
+              <label class="active teal-text" for="account">账号</label>
+            </div>
+            <div class="input-field">
+              <input id="password" type="password" name="password">
+              <label class="active teal-text" for="password">密码</label>
+            </div>
+            <a id="sumbit" type="button" class="waves-effect waves-light btn teal" style="width: 100%">登录</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

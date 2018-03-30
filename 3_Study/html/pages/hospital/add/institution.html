@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>添加定点医疗机构</title>
+    <link href="../../../css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="../../../css/materializecss-font.css" rel="stylesheet" type="text/css">
+    <script src="../../../js/jquery-2.1.4.min.js"></script>
+    <script src="../../../js/materialize.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('select').material_select();
+        $("#sumbit").click(function(){
+          var empty = false;
+          $("input").each(function(){
+            if($(this).val().length == 0)
+              empty=true;
+          });
+          if (empty) {
+            Materialize.toast('参数不合法', 2000);
+            return false;
+          }
+          else{
+            $("#form").submit();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
+        <li>
+          <div class="userView">
+            <div class="background">
+              <img src="../../../images/header.jpg">
+            </div>
+            <img class="circle center" src="../../../images/avatar.jpg">
+            <span class="white-text">我</span>
+          </div>
+        </li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal">公共业务<i class="material-icons right">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class=""><a href="../../person/add/unit.html">添加单位</a></li>
+                  <li class=""><a href="../../person/add/unit_type.html">添加单位类型</a></li>
+                  <li class=""><a href="../../person/add/person.html">添加医疗人员</a></li>
+                  <li class=""><a href="../../person/add/person_type.html">添加医疗人员类别</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal active">医疗基本信息<i class="material-icons right">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class=""><a href="drug.html">添加药品</a></li>
+                  <li class=""><a href="treatment.html">添加诊疗项目</a></li>
+                  <li class=""><a href="service.html">添加服务设施项目</a></li>
+                  <li class="active teal"><a href="institution.html">添加定点医疗机构</a></li>
+                  <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                      <li class="bold"><a class="collapsible-header waves-effect waves-teal">医疗待遇计算参数<i class="material-icons right">arrow_drop_down</i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li class=""><a href="medical_treatment_type.html">医疗类别</a></li>
+                            <li class=""><a href="hightest.html">添加封顶线</a></li>
+                            <li class=""><a href="lowtest.html">添加起付标准</a></li>
+                            <li class=""><a href="section.html">添加个人分段自费比例</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li><div class="divider"></div></li>
+        <li><a href="http://www.materializecss.cn/mobile.html" class="btn waves-effect waves-teal">注销</a></li>
+      </ul>
+    </header>
+    <main>
+      <nav class="top-nav teal">
+        <div class="container">
+          <div class="nav-wrapper"><a class="page-title">添加定点医疗机构</a></div>
+        </div>
+      </nav>
+      <div class="container">
+        <form name="form" method="get">
+          <div class="row">
+            <div class="input-field col s4">
+              <input id="id" name="id" type="text" class="validate">
+              <label for="id">医院等级编码</label>
+            </div>
+            <div class="input-field col s4">
+              <input id="name" name="name" type="text" class="validate">
+              <label for="name">医院名称</label>
+            </div>
+            <div class="input-field col s4">
+              <select id="level" name="level">
+                <option value="1">一级</option>
+                <option value="2">二级</option>
+                <option value="2">三级</option>
+              </select>
+              <label for="level">医院等级</label>
+            </div>
+          </div>
+          <a id="sumbit" type="button" class="btn btn-sm btn-success">添加</a>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

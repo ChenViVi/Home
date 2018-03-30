@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>登录</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      #search {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+      }
+      #nav {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+      }
+    </style>
+  </head>
+  <body style="background-image: url(https://pic4.zhimg.com/3d21604af4ece8292ae728500ce2c4f7_r.jpg); background-size:cover;">
+    <div class="searchbar">
+      <div class="row">
+        <div class="input-field col s12" >
+          <input type="text" class="validate">
+        </div>
+        <div class="row">
+          <div class="col s3">
+            <input class="with-gap" name="group1" type="radio" id="test1" checked/>
+            <label for="test1">Google</label>
+          </div>
+          <div class="col s3">
+            <input class="with-gap" name="group1" type="radio" id="test2" />
+            <label for="test2">知乎</label>
+          </div>
+          <div class="col s3">
+            <input class="with-gap" name="group1" type="radio" id="test3" />
+            <label for="test3">百度</label>
+          </div>
+          <div class="col s3">
+            <input class="with-gap" name="group1" type="radio" id="test4" />
+            <label for="test4">百度翻译</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tabnav">
+      <nav class="nav-extended transparent">
+          <div class="nav-content">
+              <ul class="tabs pink transparent">
+                  <li class="tab"><a href="#1"  class="teal-text">分类1</a></li>
+                  <li class="tab"><a href="#2"  class="teal-text">分类2</a></li>
+                  <li class="indicator teal" style="right: 186px; left: 68px;"></li>
+              </ul>
+          </div>
+      </nav>
+      <div id="1" class="row" style="margin-top: 20px; display: block;">
+        <a href="baidu.com" target="_blank">
+          <div class="col s2">
+            <div class="card">
+              <div class="card-image">
+                <img src="http://omqwegju8.bkt.clouddn.com/adam-whitlock-270561-unsplash.jpg">
+                <span class="card-title">Card Title</span>
+              </div>
+            </div>
+          </div>
+          <div class="col s2">
+            <div class="card">
+              <div class="card-image">
+                <img src="http://omqwegju8.bkt.clouddn.com/adam-whitlock-270561-unsplash.jpg">
+                <span class="card-title">Card Title</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div id="2" class="row" style="margin-top: 20px; display: block;">
+      </div>
+    </div>
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+      <a class="btn-floating btn-large red">
+        <i class="material-icons">mode_edit</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;"><i class="material-icons">insert_chart</i></a></li>
+        <li><a class="btn-floating yellow darken-1" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;"><i class="material-icons">format_quote</i></a></li>
+        <li><a class="btn-floating green" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;"><i class="material-icons">publish</i></a></li>
+        <li><a class="btn-floating blue" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;"><i class="material-icons">attach_file</i></a></li>
+      </ul>
+    </div>
+
+  </body>
+</html>

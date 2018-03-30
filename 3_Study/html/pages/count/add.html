@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>增加就诊信息</title>
+    <link href="../../css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="../../css/materializecss-font.css" rel="stylesheet" type="text/css">
+    <script src="../../js/jquery-2.1.4.min.js"></script>
+    <script src="../../js/materialize.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('select').material_select();
+        $('.datepicker').pickadate();
+         var rowCount = 1;
+        $(".add_row").click(function() {
+          rowCount++;
+          $(".forms").append(
+            '<div class="card">' +
+              '<div class="card-content teal-text">' +
+                '<span class="card-title">处方'+ rowCount + '</span>' +
+                '<div class="row">' +
+                  '<div class="input-field col s3">' +
+                    '<input id="project_name_' + rowCount + ' + " name="project_name_1" type="text" class="validate">' +
+                    '<label for="project_name_' + rowCount + '">项目名称</label>' +
+                  '</div>' +
+                  '<div class="input-field col s3">' +
+                    '<select id="project_type_' + rowCount + '" name="project_type_' + rowCount + '">' +
+                      '<option value="1">药品</option>' +
+                      '<option value="2">诊疗项目</option>' +
+                      '<option value="3">服务设施项目</option>' +
+                    '</select>' +
+                    '<label for="project_type_' + rowCount + '">项目类别</label>' +
+                  '</div>' +
+                  '<div class="input-field col s3">' +
+                    '<input id="price_' + rowCount + '" name="price_' + rowCount + '" type="number" class="validate">' +
+                    '<label for="price_' + rowCount + '">单价</label>' +
+                  '</div>' +
+                  '<div class="input-field col s3">' +
+                    '<input id="count_' + rowCount + '" name="count_'+ rowCount + '" type="number" class="validate">' +
+                    '<label for="count_' + rowCount + '">数量</label>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+              '<a class="teal-text close" style="position:absolute;right:1px;top:1px;z-index:999;"><i class="material-icons">close</i></a>' +
+             '</div>'
+          );
+          $('select').material_select();
+          $(".close").click(function(){
+            $(this).parent().remove();
+            rowCount--;
+          });
+          $(document).scrollTop($(document).height()-$(window).height());
+        });
+        $("#sumbit").click(function(){
+          var empty = false;
+          $("input").each(function(){
+            if($(this).val().length == 0)
+              empty=true;
+          });
+          if (empty) {
+            Materialize.toast('参数不合法', 2000);
+            return false;
+          }
+          else{
+            $("#form").submit();
+          }
+        });
+        $(".close").click(function(){
+          $(this).parent().remove();
+          rowCount--;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
+        <li>
+          <div class="userView">
+            <div class="background">
+              <img src="../../images/header.jpg">
+            </div>
+            <img class="circle center" src="../../images/avatar.jpg">
+            <span class="white-text">我</span>
+          </div>
+        </li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal">公共业务<i class="material-icons right">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class=""><a href="../person/unit.html">单位</a></li>
+                  <li class=""><a href="../person/unit_type.html">单位类型</a></li>
+                  <li class=""><a href="../person/person.html">医疗人员</a></li>
+                  <li class=""><a href="../person/person_type.html">医疗人员类别</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal">医疗基本信息<i class="material-icons right">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class=""><a href="../hospital/drug.html">药品</a></li>
+                  <li class=""><a href="../hospital/treatment.html">诊疗项目</a></li>
+                  <li class=""><a href="../hospital/service.html">服务设施项目</a></li>
+                  <li class=""><a href="../hospital/institution.html">定点医疗机构</a></li>
+                  <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                      <li class="bold"><a class="collapsible-header waves-effect waves-teal">医疗待遇计算参数<i class="material-icons right">arrow_drop_down</i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li class=""><a href="hightest.html">封顶线</a></li>
+                            <li class=""><a href="lowest.html">起付标准</a></li>
+                            <li class=""><a href="section.html">个人分段自费比例</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal active">医保中心报销<i class="material-icons right">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class=""><a href="search.html">查询就诊信息</a></li>
+                  <li class="active teal"><a href="add.html">增加就诊信息</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li><div class="divider"></div></li>
+        <li><a href="http://www.materializecss.cn/mobile.html" class="btn waves-effect waves-teal">注销</a></li>
+      </ul>
+    </header>
+    <main>
+      <nav class="top-nav teal">
+        <div class="container">
+          <div class="nav-wrapper"><a class="page-title">增加就诊信息</a></div>
+        </div>
+      </nav>
+      <div class="container" style="padding-bottom: 20px">
+        <form name="form" method="get">
+          <div class="forms">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title teal-text">病人就诊资料信息</span>
+                <div class="row">
+                  <div class="input-field col s4">
+                    <input id="patient_no" name="patient_no" type="text" class="validate">
+                    <label for="patient_no">住院号(门诊号)</label>
+                  </div>
+                  <div class="input-field col s4">
+                    <input id="person_name" name="person_name" type="text" class="validate">
+                    <label for="person_name">病人姓名</label>
+                  </div>
+                  <div class="input-field col s4">
+                    <select id="institution_name" name="institution_name">
+                      <option value="1">医疗机构1</option>
+                      <option value="2">医疗机构2</option>
+                    </select>
+                    <label for="institution_name">医疗机构</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s4">
+                    <select id="medical_treatment_type" name="medical_treatment_type">
+                      <option value="1">医疗类别1</option>
+                      <option value="2">医疗类别2</option>
+                    </select>
+                    <label for="medical_treatment_type">医疗类别</label>
+                  </div>
+                  <div class="input-field col s4">
+                    <input id="enter_hospital" name="enter_hospital" type="date" class="datepicker">
+                    <label for="enter_hospital">入院日期</label>
+                  </div>
+                  <div class="input-field col s4">
+                    <input id="leave_hospital" name="leave_hospital" type="date" class="datepicker">
+                    <label for="leave_hospital">出院日期</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s6">
+                    <select id="disease_name" name="disease_name">
+                      <option value="1">病种名称1</option>
+                      <option value="2">病种名称2</option>
+                    </select>
+                    <label for="disease_name">病种名称</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="leave_hospital_reason" name="leave_hospital_reason" type="text" class="validate">
+                    <label for="leave_hospital_reason">出院原因</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title teal-text">处方1</span>
+                <div class="row">
+                  <div class="input-field col s3">
+                    <input id="project_name_1" name="project_name_1" type="text" class="validate">
+                    <label for="project_name_1">项目名称</label>
+                  </div>
+                  <div class="input-field col s3">
+                    <select id="project_type_1" name="project_type_1">
+                      <option value="1">药品</option>
+                      <option value="2">诊疗项目</option>
+                      <option value="3">服务设施项目</option>
+                    </select>
+                    <label for="project_type_1">项目类别</label>
+                  </div>
+                  <div class="input-field col s3">
+                    <input id="price_1" name="price_1" type="number" class="validate">
+                    <label for="price_1">单价</label>
+                  </div>
+                  <div class="input-field col s3">
+                    <input id="count_1" name="count_1" type="number" class="validate">
+                    <label for="count_1">数量</label>
+                  </div>
+                </div>
+              </div>
+            <a class="teal-text close" style="position:absolute;right:1px;top:1px;z-index:999;"><i class="material-icons">close</i></a>
+          </div>
+        </div>
+        <button type="button" class="btn waves-light blue add_row ">添加处方</button>
+        <a id="sumbit" href="result.html" type="button" class="btn waves-light teal">报销结算</a>
+      </form>
+    </main>
+  </body>
+</html>

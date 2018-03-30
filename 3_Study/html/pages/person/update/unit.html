@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>修改单位</title>
+    <link href="../../../css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="../../../css/materializecss-font.css" rel="stylesheet" type="text/css">
+    <script src="../../../js/jquery-2.1.4.min.js"></script>
+    <script src="../../../js/materialize.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('select').material_select();
+        $("#sumbit").click(function(){
+          var empty = false;
+          $("input").each(function(){
+            if($(this).val().length == 0)
+              empty=true;
+          });
+          if (empty) {
+            Materialize.toast('参数不合法', 2000);
+            return false;
+          }
+          else{
+            $("#form").submit();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <nav class="top-nav teal">
+      <div class="container">
+        <div class="nav-wrapper"><a class="page-title">修改单位</a></div>
+      </div>
+    </nav>
+    <div class="container">
+      <form name="form" method="get">
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="id" type="text" class="validate">
+            <label for="id">单位编号</label>
+          </div>
+          <div class="input-field col s4">
+            <input id="name" type="text" class="validate">
+            <label for="name">单位名称</label>
+          </div>
+          <div class="input-field col s4">
+            <select>
+              <option value="1">类型1</option>
+              <option value="2">类型2</option>
+            </select>
+            <label>单位类型</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="address" type="text" class="validate">
+            <label for="address">地址</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="post_code" type="password" class="validate">
+            <label for="post_code">邮编</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="telephone" type="text" class="validate">
+            <label for="telephone">联系电话</label>
+          </div>
+        </div>
+        <a id="sumbit" type="button" class="btn btn-sm btn-success">修改</a>
+      </form>
+    </div>
+  </body>
+</html>

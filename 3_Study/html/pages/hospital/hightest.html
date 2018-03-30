@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>封顶线</title>
+    <link href="../../css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="../../css/materializecss-font.css" rel="stylesheet" type="text/css">
+    <script src="../../js/jquery-2.1.4.min.js"></script>
+    <script src="../../js/materialize.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
+        <li>
+          <div class="userView">
+            <div class="background">
+              <img src="../../images/header.jpg">
+            </div>
+            <img class="circle center" src="../../images/avatar.jpg">
+            <span class="white-text">我</span>
+          </div>
+        </li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal">公共业务<i class="material-icons right">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class=""><a href="../person/unit.html">单位</a></li>
+                  <li class=""><a href="../person/unit_type.html">单位类型</a></li>
+                  <li class=""><a href="../person/person.html">医疗人员</a></li>
+                  <li class=""><a href="../person/person_type.html">医疗人员类别</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal active">医疗基本信息<i class="material-icons right">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class=""><a href="drug.html">药品</a></li>
+                  <li class=""><a href="treatment.html">诊疗项目</a></li>
+                  <li class=""><a href="service.html">服务设施项目</a></li>
+                  <li class=""><a href="institution.html">定点医疗机构</a></li>
+                  <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                      <li class="bold"><a class="collapsible-header waves-effect waves-teal active">医疗待遇计算参数<i class="material-icons right">arrow_drop_down</i></a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li class="active teal"><a href="hightest.html">封顶线</a></li>
+                            <li class=""><a href="lowest.html">起付标准</a></li>
+                            <li class=""><a href="section.html">个人分段自费比例</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal">医保中心报销<i class="material-icons right">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class=""><a href="../count/search.html">查询就诊信息</a></li>
+                  <li class=""><a href="../count/add.html">增加就诊信息</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li><div class="divider"></div></li>
+        <li><a href="http://www.materializecss.cn/mobile.html" class="btn waves-effect waves-teal">注销</a></li>
+      </ul>
+    </header>
+    <main>
+    <nav class="top-nav teal">
+      <div class="container">
+        <div class="nav-wrapper"><a class="page-title">封顶线</a></div>
+      </div>
+    </nav>
+    <div class="container">
+      <a href="" target="_blank" type="button" class="btn blue" style="margin-top: 20px">添加</a>
+      <table class="responsive-table centered highlight">
+        <thead>
+          <tr>
+              <th>医疗人员类别</th>
+              <th>封顶线</th>
+              <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>医疗人员类别1</td>
+            <td>封顶线1</td>
+            <td>
+              <a href="update/hightest.html" type="button" class="btn btn-sm btn-success">修改</a>
+              <a href="" type="button" class="waves-effect waves-light btn red lighten-1">删除</a>
+            </td>
+          </tr>
+          <tr>
+            <td>医疗人员类别2</td>
+            <td>封顶线2</td>
+            <td>
+              <a href="update/hightest.html" type="button" class="btn btn-sm btn-success">修改</a>
+              <a href="" type="button" class="waves-effect waves-light btn red lighten-1">删除</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </main>
+</body>
+</html>
