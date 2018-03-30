@@ -39,22 +39,21 @@
                     <input type="text" class="validate">
                 </div>
                 <div class="row">
-                    <div class="col s3">
-                        <input class="with-gap" name="group1" type="radio" id="test1" checked/>
-                        <label for="test1">Google</label>
-                    </div>
-                    <div class="col s3">
-                        <input class="with-gap" name="group1" type="radio" id="test2" />
-                        <label for="test2">知乎</label>
-                    </div>
-                    <div class="col s3">
-                        <input class="with-gap" name="group1" type="radio" id="test3" />
-                        <label for="test3">百度</label>
-                    </div>
-                    <div class="col s3">
-                        <input class="with-gap" name="group1" type="radio" id="test4" />
-                        <label for="test4">百度翻译</label>
-                    </div>
+                    <% int i = 0;%>
+                    <c:forEach items="${searchList}" var="search">
+                        <% if (i == 0) { %>
+                        <div class="col s3">
+                            <input class="with-gap" name="group1" type="radio" id="search${search.id}" checked/>
+                            <label for="search${search.id}">${search.name}</label>
+                        </div>
+                        <% } else { %>
+                        <div class="col s3">
+                            <input class="with-gap" name="group1" type="radio" id="search${search.id}"/>
+                            <label for="search${search.id}">${search.name}</label>
+                        </div>
+                        <% } %>
+                        <% i++;%>
+                    </c:forEach>
                 </div>
             </div>
         </div>
