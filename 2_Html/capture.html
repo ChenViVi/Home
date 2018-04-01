@@ -2,58 +2,107 @@
 <html lang="en">
   <head>
       <meta charset="UTF-8">
-      <title>测试相对定位和绝对定位</title>
+      <title>ViVi的传送门</title>
       <script src="http://code.jquery.com/jquery-latest.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <style>
           .searchbar{
-            width:500px;
             margin:20px auto;
-            background-color: rgba(255,255,255,0.75);
+            background-color: rgba(255,255,255,0.65);
             width:60%;
           }
           .tabnav{
-            width:500px;
             min-height:500px; height:auto!important; height:500px;
             margin:20px auto;
-            background-color: rgba(255,255,255,0.75);
+            background-color: rgba(255,255,255,0.55);
             width:80%;
             position: relative;
             top: 20px;
           }
-          .webisite{
-            background-color: rgba(255,255,255,0.55);
+          .website{
+            background-color: rgba(255,255,255,0.2);
             padding: 5px;
             border-radius:5px;
           }
       </style>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('.searchbar').on('keydown',function(event){
+            if(event.keyCode == 13){
+              window.open ($('input[name=group1]:checked', '#myForm').val() + $("input[name='search_param']").val());
+              $("input[name='search_param']").val("");
+            }
+          });
+          $(".searchbtn").click(function(){
+            window.open ($('input[name=group1]:checked', '#myForm').val() + $("input[name='search_param']").val());
+            $("input[name='search_param']").val("");
+          });
+        });
+      </script>
   </head>
   <body style="background-image: url(https://pic4.zhimg.com/3d21604af4ece8292ae728500ce2c4f7_r.jpg); background-size:cover;">
-    <div class="searchbar">
+    <div class= "searchbar">
       <div class="row">
-        <div class="input-field col s12" >
-          <input type="text" class="validate">
+        <form id="myForm">
+        <div class="row col s12" style="position:relative;">
+          <div class="input-field col s11" >
+            <input name="search_param" type="text" class="validate">
+          </div>
+          <a class="waves-effect waves-light btn col s1 searchbtn" style="position: absolute;top: 50%;transform: translateY(-50%);"><i class="material-icons">search</i></a>
         </div>
-        <div class="row">
-          <div class="col s3">
-            <input class="with-gap" name="group1" type="radio" id="test1" checked/>
+        <div class="row col s12">
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test1"  value="https://www.google.com/search?q=" checked/>
             <label for="test1">Google</label>
           </div>
-          <div class="col s3">
-            <input class="with-gap" name="group1" type="radio" id="test2" />
-            <label for="test2">知乎</label>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test2" value="https://fanyi.baidu.com/#en/zh/"/>
+            <label for="test2">百度翻译</label>
           </div>
-          <div class="col s3">
-            <input class="with-gap" name="group1" type="radio" id="test3" />
-            <label for="test3">百度</label>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test3"  value="https://www.zhihu.com/search?type=content&q=" />
+            <label for="test3">知乎</label>
           </div>
-          <div class="col s3">
-            <input class="with-gap" name="group1" type="radio" id="test4" />
-            <label for="test4">百度翻译</label>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test4" value="https://www.baidu.com/s?wd="/>
+            <label for="test4">百度</label>
+          </div>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test5" value="http://so.iqiyi.com/so/q_"/>
+            <label for="test5">爱奇艺</label>
+          </div>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test6" value="https://search.bilibili.com/all?keyword="/>
+            <label for="test6">B站</label>
+          </div>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test7" value="https://github.com/search?utf8=%E2%9C%93&q="/>
+            <label for="test7">Github</label>
+          </div>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test8" value="http://www.iconfont.cn/search/index?q="/>
+            <label for="test8">Iconfont</label>
+          </div>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test9" value="https://unsplash.com/search/photos/"/>
+            <label for="test9">Unsplash</label>
+          </div>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test10" value="https://search.jd.com/Search?keyword="/>
+            <label for="test10">京东</label>
+          </div>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test11" value="https://s.taobao.com/search?q="/>
+            <label for="test11">淘宝</label>
+          </div>
+          <div class="col s2">
+            <input class="with-gap" name="group1" type="radio" id="test12" value="http://search.zol.com.cn/s/all.php?keyword="/>
+            <label for="test12">中关村</label>
           </div>
         </div>
+        </form>
       </div>
     </div>
     <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
@@ -71,36 +120,350 @@
       <nav class="nav-extended transparent">
           <div class="nav-content">
               <ul class="tabs pink transparent">
-                  <li class="tab"><a href="#1"  class="teal-text">分类1</a></li>
-                  <li class="tab"><a href="#2"  class="teal-text">分类2</a></li>
+                  <li class="tab"><a href="#1"  class="teal-text">日常</a></li>
+                  <li class="tab"><a href="#2"  class="teal-text">网络相关</a></li>
+                  <li class="tab"><a href="#3"  class="teal-text">Android</a></li>
+                  <li class="tab"><a href="#4"  class="teal-text">技术</a></li>
+                  <li class="tab"><a href="#5"  class="teal-text">游戏</a></li>
+                  <li class="tab"><a href="#6"  class="teal-text">番剧</a></li>
                   <li class="indicator teal" style="right: 186px; left: 68px;"></li>
               </ul>
           </div>
       </nav>
       <div id="1" class="row" style="margin-top: 20px; display: block;">
-        <div class="col s2">
-          <a href="baidu.com" target="_blank">
-            <div class="webisite" style="position:relative;">
-              <img class="circle" src="http://p6cyjfw16.bkt.clouddn.com/avatar.jpg" width="30px" style="position: absolute;top: 50%;transform: translateY(-50%);">
-              <p class="teal-text center">我是弹性文本呀</p>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://www.bilibili.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://www.bilibili.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">哔哩哔哩</p>
             </div>
           </a>
         </div>
-        <div class="col s2">
-          <a href="baidu.com" target="_blank">
-            <div class="webisite" style="position:relative;">
-              <img class="circle" src="http://p6cyjfw16.bkt.clouddn.com/avatar.jpg" width="30px" style="position: absolute;top: 50%;transform: translateY(-50%);">
-              <p class="teal-text center">我是弹性文本呀</p>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://github.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://github.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Github</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://chenvivi.github.io/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://chenvivi.github.io/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">博客</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://www.youtube.com" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://www.youtube.com" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">YouTube</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://www.pinterest.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://www.pinterest.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Pinterest</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://www.tumblr.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://www.tumblr.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Tumblr</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://weibo.com" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://weibo.com" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">微博</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://twitter.com" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://twitter.com" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Twitter</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://www.gitbook.com/@chenvivi" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://www.gitbook.com/@chenvivi" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">GitBook</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://mail.google.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://mail.google.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Gmail</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://mail.qq.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://mail.qq.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">QQ邮箱</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://mail.163.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://mail.163.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">163邮箱</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://588ku.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://588ku.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">千库网</p>
             </div>
           </a>
         </div>
       </div>
       <div id="2" class="row" style="margin-top: 20px; display: block;">
-        <div class="col s2">
-          <a href="baidu.com" target="_blank">
-            <div class="webisite" style="position:relative;">
-              <img class="circle" src="http://p6cyjfw16.bkt.clouddn.com/avatar.jpg" width="30px" style="position: absolute;top: 50%;transform: translateY(-50%);">
-              <p class="teal-text center">我是弹性文本呀</p>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://www.bejson.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://www.bejson.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">JSON</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://139.199.32.74/phpmyadmin" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://139.199.32.74/phpmyadmin" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">phpMyAdmin</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://tool.chinaz.com/tools/unicode.aspx" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://tool.chinaz.com/tools/unicode.aspx" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">编码转换</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://coolaf.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://coolaf.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">GET和POST测试</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://portal.qiniu.com/bucket/picpool/index" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://portal.qiniu.com/bucket/picpool/index" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">七牛云</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://my.vultr.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://my.vultr.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Vultr主机</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://console.cloud.tencent.com/cvm/index" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://console.cloud.tencent.com/cvm/index" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">腾讯云主机</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="3" class="row" style="margin-top: 20px; display: block;">
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://developer.android.com/index.html" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://developer.android.com/index.html" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Android Developer</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://androidxref.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://androidxref.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">AndroidXref</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://www.materialpalette.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://www.materialpalette.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">MaterialPalette</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://angrytools.com/android/button/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://angrytools.com/android/button/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">ButtonMaker</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://tool.c7sky.com/webcolor/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://tool.c7sky.com/webcolor/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">配色</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://www.sioe.cn/yingyong/yanse-rgb-16/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://www.sioe.cn/yingyong/yanse-rgb-16/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">16进制颜色转换</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://encycolorpedia.cn/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://encycolorpedia.cn/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">颜色介绍</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="4" class="row" style="margin-top: 20px; display: block;">
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://juejin.im/welcome" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://juejin.im/welcome" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">掘金</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://itbang.me/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://itbang.me/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">IT帮</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://stackoverflow.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://stackoverflow.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">stackoverflow</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://blog.csdn.net/q932942491" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://blog.csdn.net/q932942491" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">CSDN</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="5" class="row" style="margin-top: 20px; display: block;">
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://store.steampowered.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://store.steampowered.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Steam</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://www.humblebundle.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://www.humblebundle.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">HumbleBundle</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://steamdb.info/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://steamdb.info/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">SteamDB</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://www.origin.com/usa/zh-tw/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://www.origin.com/usa/zh-tw/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Origin</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://www.ubisoft.com.cn/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://www.ubisoft.com.cn/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Ubisoft</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://www.3dmgame.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://www.3dmgame.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">3DM</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="http://www.gamersky.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=http://www.gamersky.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">游民星空</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://www.bigfishgames.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://www.bigfishgames.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">大鱼游戏</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://www.kongregate.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://www.kongregate.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Kongregate</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s3" style="margin-top: 20px; display: block;">
+          <a href="https://armorgames.com/" target="_blank">
+            <div class="website hoverable" style="position:relative;">
+              <img src="http://www.google.com/s2/favicons?domain=https://armorgames.com/" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+              <p class="teal-text center">Armor Game</p>
             </div>
           </a>
         </div>

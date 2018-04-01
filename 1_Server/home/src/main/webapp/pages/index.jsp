@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,13 +12,11 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <style>
             .searchbar{
-                width:500px;
                 margin:20px auto;
                 background-color: rgba(255,255,255,0.75);
                 width:60%;
             }
             .tabnav{
-                width:500px;
                 min-height:500px; height:auto!important; height:500px;
                 margin:20px auto;
                 background-color: rgba(255,255,255,0.75);
@@ -25,7 +24,7 @@
                 position: relative;
                 top: 20px;
             }
-            .webisite{
+            .website{
                 background-color: rgba(255,255,255,0.55);
                 padding: 5px;
                 border-radius:5px;
@@ -34,28 +33,33 @@
     </head>
     <body style="background-image: url(https://pic4.zhimg.com/3d21604af4ece8292ae728500ce2c4f7_r.jpg); background-size:cover;">
         <div class="searchbar">
-            <div class="row">
-                <div class="input-field col s12" >
-                    <input type="text" class="validate">
-                </div>
+            <form:form action="/search" method="get" role="form">
                 <div class="row">
-                    <% int i = 0;%>
-                    <c:forEach items="${searchList}" var="search">
-                        <% if (i == 0) { %>
-                        <div class="col s3">
-                            <input class="with-gap" name="group1" type="radio" id="search${search.id}" checked/>
-                            <label for="search${search.id}">${search.name}</label>
+                    <div class="row col s12" style="position:relative;">
+                        <div class="input-field col s11" >
+                            <input name="search_param" type="text" class="validate">
                         </div>
-                        <% } else { %>
-                        <div class="col s3">
-                            <input class="with-gap" name="group1" type="radio" id="search${search.id}"/>
-                            <label for="search${search.id}">${search.name}</label>
-                        </div>
-                        <% } %>
-                        <% i++;%>
-                    </c:forEach>
+                        <button type="submit" class="waves-effect waves-light btn col s1" style="position: absolute;top: 50%;transform: translateY(-50%);"><i class="material-icons">search</i></button>
+                    </div>
+                    <div class="row col s12">
+                        <% int i = 0;%>
+                        <c:forEach items="${searchList}" var="search">
+                            <% if (i == 0) { %>
+                            <div class="col s3">
+                                <input class="with-gap" name="search_url" type="radio" id="search${search.id}" value="1" checked/>
+                                <label for="search${search.id}">${search.name}</label>
+                            </div>
+                            <% } else { %>
+                            <div class="col s3">
+                                <input class="with-gap" name="search_url" type="radio" id="search${search.id}" value="${search.url}"/>
+                                <label for="search${search.id}">${search.name}</label>
+                            </div>
+                            <% } %>
+                            <% i++;%>
+                        </c:forEach>
+                    </div>
                 </div>
-            </div>
+            </form:form>
         </div>
         <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
             <a class="btn-floating btn-large red">
@@ -83,16 +87,24 @@
                 <div id="${type.id}" class="row" style="margin-top: 20px; display: block;">
                     <c:forEach items="${siteList}" var="site">
                         <c:if test="${site.typeId.equals(type.id)}">
-                            <div class="col s2">
+                            <div class="col s3" style="margin-top: 20px; display: block;">
                                 <a href="${site.url}" target="_blank">
-                                    <div class="webisite" style="position:relative;">
-                                        <img class="circle" src="http://www.google.com/s2/favicons?domain=${site.url}" width="30px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+                                    <div class="website hoverable" style="position:relative;">
+                                        <img src="http://www.google.com/s2/favicons?domain=${site.url}" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
                                         <p class="teal-text center">${site.name}</p>
                                     </div>
                                 </a>
                             </div>
                         </c:if>
                     </c:forEach>
+                    <div class="col s3" style="margin-top: 20px; display: block;">
+                        <a href="${site.url}" target="_blank">
+                            <div class="website hoverable" style="position:relative;">
+                                <img class="circle" src="http://omqwegju8.bkt.clouddn.com/ic_add_circle_outline_white_48dp.png" width="16px" style="position: absolute;top: 50%;transform: translateY(-50%);">
+                                <p class="teal-text center">添加</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </c:forEach>
         </div>

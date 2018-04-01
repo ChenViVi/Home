@@ -9,6 +9,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 /**
@@ -33,5 +35,12 @@ public class WebsiteController {
         modelMap.addAttribute("typeList", typeRepository.findAll());
         modelMap.addAttribute("siteList", siteRepository.findAll());
         return "index";
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String search(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println(request.getParameter("search_param") + request.getParameter("search_url"));
+        return "redirect:" + searchRepository.findOne(Integer.parseInt(request.getParameter("search_url"))).getUrl()
+                + request.getParameter("search_param");
     }
 }
